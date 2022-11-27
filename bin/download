@@ -13,7 +13,6 @@ mkdir -p "$ASDF_DOWNLOAD_PATH"
 uname_s="$(uname -s)"
 uname_m="$(uname -m)"
 os=""
-arch=""
 
 case "$uname_s" in
 Darwin) os="macos" ;;
