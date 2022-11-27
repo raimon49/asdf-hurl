@@ -21,21 +21,7 @@ case "$uname_s" in
   Linux) os="linux" ;;
   *) fail "OS not supported: $uname_s" ;;
 esac
-
-case "$uname_m" in
-  i?86) arch="386" ;;
-  x86_64) arch="amd64" ;;
-  aarch64) arch="arm64" ;;
-  armv8l) arch="arm64" ;;
-  arm64) arch="arm64" ;;
-  armv7l) arch="arm" ;;
-  mips) arch="mips" ;;
-  mipsel) arch="mipsle" ;;
-  mips64) arch="mips64" ;;
-  mips64el) arch="mips64le" ;;
-  *) fail "Architecture not supported: $uname_m" ;;
-esac
-release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${arch}-${os}.tar.gz"
+release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${uname_m}-${os}.tar.gz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
