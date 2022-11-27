@@ -10,8 +10,16 @@ source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-# TODO: Adapt this to proper extension and adapt extracting strategy.
-release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION.tar.gz"
+uname_s="$(uname -s)"
+uname_m="$(uname -m)"
+os=""
+
+case "$uname_s" in
+Darwin) os="macos" ;;
+Linux) os="linux" ;;
+*) fail "OS not supported: $uname_s" ;;
+esac
+release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${uname_m}-${os}.tar.gz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"

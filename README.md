@@ -3,7 +3,7 @@
 # asdf-hurl [![Build](https://github.com/raimon49/asdf-hurl/actions/workflows/build.yml/badge.svg)](https://github.com/raimon49/asdf-hurl/actions/workflows/build.yml) [![Lint](https://github.com/raimon49/asdf-hurl/actions/workflows/lint.yml/badge.svg)](https://github.com/raimon49/asdf-hurl/actions/workflows/lint.yml)
 
 
-[hurl](https://github.com/raimon49/asdf-hurl) plugin for the [asdf version manager](https://asdf-vm.com).
+[hurl](https://hurl.dev/) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
@@ -16,10 +16,7 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
@@ -58,4 +55,4 @@ Contributions of any kind welcome! See the [contributing guide](contributing.md)
 
 # License
 
-See [LICENSE](LICENSE) © [raimon](https://github.com/raimon49/)
+See [LICENSE](LICENSE)
