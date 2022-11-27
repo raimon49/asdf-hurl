@@ -10,9 +10,10 @@ source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-local uname_s="$(uname -s)"
-local uname_m="$(uname -m)"
-local os arch
+uname_s="$(uname -s)"
+uname_m="$(uname -m)"
+os=""
+arch=""
 
 case "$uname_s" in
   FreeBSD) os="freebsd" ;;
@@ -34,7 +35,7 @@ case "$uname_m" in
   mips64el) arch="mips64le" ;;
   *) fail "Architecture not supported: $uname_m" ;;
 esac
-release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${uname_m}-${uname_s}.tar.gz"
+release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${arch}-${os}.tar.gz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
