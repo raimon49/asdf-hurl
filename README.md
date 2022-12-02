@@ -24,8 +24,6 @@ Plugin:
 
 ```shell
 asdf plugin add hurl
-# or
-asdf plugin add hurl https://github.com/raimon49/asdf-hurl.git
 ```
 
 hurl:
