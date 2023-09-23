@@ -27,7 +27,7 @@ else
   fi
 
   case "$uname_s" in
-  Darwin) os="apple-dawrin" ;;
+  Darwin) os="apple-darwin" ;;
   Linux) os="unknown-linux-gnu" ;;
   *) fail "OS not supported: $uname_s" ;;
   esac
