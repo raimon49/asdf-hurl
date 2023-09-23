@@ -14,8 +14,7 @@ uname_s="$(uname -s)"
 uname_m="$(uname -m)"
 os=""
 
-is_using_rust_toolchain=$(verlte "4.1.0" "${ASDF_INSTALL_VERSION}")
-if [ "$is_using_rust_toolchain" ]; then
+if [ "$(numeric_version ${ASDF_INSTALL_VERSION})" -ge "$(numeric_version 4.1.0)" ]; then
   case "$uname_s" in
   Darwin) os="macos" ;;
   Linux) os="linux" ;;
