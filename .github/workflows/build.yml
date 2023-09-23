@@ -14,9 +14,13 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
+        hurl-version:
+          - 4.0.0
+          - 4.1.0
     runs-on: ${{ matrix.os }}
     steps:
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v1
         with:
           command: hurl --version
+          version: ${{ matrix.hurl-version }}

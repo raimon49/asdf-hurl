@@ -33,6 +33,12 @@ list_all_versions() {
   list_github_tags
 }
 
+verlte() {
+  # verlte 2.5.7 2.5.6 && echo "yes" || echo "no" # no
+  # verlte 2.5.6 2.5.6 && echo "yes" || echo "no" # yes
+  printf '%s\n' "$1" "$2" | sort -C -V
+}
+
 download_release() {
   local version filename url
   version="$1"

@@ -14,11 +14,24 @@ uname_s="$(uname -s)"
 uname_m="$(uname -m)"
 os=""
 
-case "$uname_s" in
-Darwin) os="macos" ;;
-Linux) os="linux" ;;
-*) fail "OS not supported: $uname_s" ;;
-esac
+is_using_rust_toolchain=$(verlte "4.1.0" "${ASDF_INSTALL_VERSION}")
+if [ "$is_using_rust_toolchain" ]; then
+  case "$uname_s" in
+  Darwin) os="macos" ;;
+  Linux) os="linux" ;;
+  *) fail "OS not supported: $uname_s" ;;
+  esac
+else
+  if [ "$uname_m" = "arm64" ]; then
+    uname_m="aarch64"
+  fi
+
+  case "$uname_s" in
+  Darwin) os="apple-dawrin" ;;
+  Linux) os="unknown-linux-gnu" ;;
+  *) fail "OS not supported: $uname_s" ;;
+  esac
+fi
 release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${uname_m}-${os}.tar.gz"
 
 # Download tar.gz file to the download directory
