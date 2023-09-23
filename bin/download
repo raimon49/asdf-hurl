@@ -14,11 +14,24 @@ uname_s="$(uname -s)"
 uname_m="$(uname -m)"
 os=""
 
-case "$uname_s" in
-Darwin) os="macos" ;;
-Linux) os="linux" ;;
-*) fail "OS not supported: $uname_s" ;;
-esac
+install_numeric_version=$(numeric_version "${ASDF_INSTALL_VERSION}")
+if [ "${install_numeric_version}" -ge "$(numeric_version 4.1.0)" ]; then
+  if [ "$uname_m" = "arm64" ]; then
+    uname_m="aarch64"
+  fi
+
+  case "$uname_s" in
+  Darwin) os="apple-darwin" ;;
+  Linux) os="unknown-linux-gnu" ;;
+  *) fail "OS not supported: $uname_s" ;;
+  esac
+else
+  case "$uname_s" in
+  Darwin) os="macos" ;;
+  Linux) os="linux" ;;
+  *) fail "OS not supported: $uname_s" ;;
+  esac
+fi
 release_file="${TOOL_NAME}-${ASDF_INSTALL_VERSION}-${uname_m}-${os}.tar.gz"
 
 # Download tar.gz file to the download directory
