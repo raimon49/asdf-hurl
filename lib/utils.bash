@@ -60,10 +60,10 @@ install_version() {
   (
     mkdir -p "$install_path"
     if ! $(echo -e "$version\n4.2.0" | sort -VC); then
-        # see https://github.com/Orange-OpenSource/hurl/issues/2401
-        cp -r "$ASDF_DOWNLOAD_PATH"/bin/* "$install_path"
+      # see https://github.com/Orange-OpenSource/hurl/issues/2401
+      cp -r "$ASDF_DOWNLOAD_PATH"/bin/* "$install_path"
     else
-        cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
+      cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     fi
 
     local tool_cmd
